@@ -38,4 +38,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     //google api for login
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    //for animation
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.github.florent37:viewanimator:1.1.0'
+    implementation "com.android.support:design:24.2.0"
+
 }

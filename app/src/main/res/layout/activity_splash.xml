@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_logo1_id_splashActivity"
+        android:src="@drawable/ic_baseline_remove_red_eye_24"
+        android:layout_centerInParent="true"
+        android:layout_margin="-10dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_logo2_id_splashActivity"
+        android:layout_toRightOf="@id/iv_logo1_id_splashActivity"
+        android:src="@drawable/ic_baseline_remove_red_eye_24"
+        android:layout_centerInParent="true"
+        android:layout_margin="-10dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/iv_logo1_id_splashActivity"
+        android:id="@+id/iv_logo3_id_splashActivity"
+        android:layout_margin="-10dp"
+        android:src="@drawable/ic_baseline_remove_red_eye_24"
+        android:layout_centerInParent="true"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:cardElevation="10dp"
+        android:layout_margin="20sp"
+        android:alpha=".9"
+        app:cardCornerRadius="10dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/cv_splashActivity"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:id="@+id/vv_id_splahActivity"
+            android:src="@drawable/splash"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_count_splahActivity"
+        android:layout_below="@id/cv_splashActivity"
+        android:hint="views"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="monospace"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
