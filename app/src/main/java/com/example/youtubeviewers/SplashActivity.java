@@ -29,6 +29,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash);
         imageView1=findViewById(R.id.iv_logo1_id_splashActivity);
         imageView2=findViewById(R.id.iv_logo2_id_splashActivity);
@@ -37,16 +38,15 @@ public class SplashActivity extends AppCompatActivity {
         random_num=new Random();
         a= 0;
         textView_count.setText(String.valueOf(a));
-
         Handler handler=new Handler();
-        for(int i=0;i<=1000;i++) {
+        for(int i = 0; i<=1000; i++) {
+            a=i;
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
+                    textView_count.setText(String.valueOf(a));
                 }
             },100);
-             textView_count.setText(String.valueOf(i));
         }
 
         handler.postDelayed(new Runnable() {
