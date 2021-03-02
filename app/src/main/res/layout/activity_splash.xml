@@ -48,7 +48,7 @@
             android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:id="@+id/vv_id_splahActivity"
-            android:src="@drawable/splash"
+
             />
     </androidx.cardview.widget.CardView>
 
