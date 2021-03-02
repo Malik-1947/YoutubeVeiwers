@@ -1,14 +1,18 @@
 package com.example.youtubeviewers;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import com.example.youtubeviewers.Fragment.CampaignFragment;
+import com.example.youtubeviewers.Fragment.HomeFragment;
+import com.example.youtubeviewers.Fragment.ProfileFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -16,6 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private SignInButton signInButton;
     private static int RC_SIGN_IN = 100;
+    public ChipNavigationBar bm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         signInButton = findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
+        bm = findViewById(R.id.bottom_nav_id);
         SignInWithGoogleApi();
+
+        bm.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                switch (i) {
+                    case R.id.bottom_Campaign:
+                        LoadFragment(new CampaignFragment());
+                        Toast.makeText(MainActivity.this, "Campaign", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.bottom_home:
+                        LoadFragment(new HomeFragment());
+                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.bottom_profile:
+                        LoadFragment(new ProfileFragment());
+                        Toast.makeText(MainActivity.this, "profile", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void SignInWithGoogleApi() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -99,9 +128,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "cannot sign in", Toast.LENGTH_SHORT).show();
             }
         } catch (ApiException e) {
-            System.out.println("error #@#@#@#@#@#@#@#@#    " + e.getStatusCode());
+            System.out.println("error #@#@#@#@#@#@#@#@#" + e.getStatusCode());
 
         }
     }
 
+    private void LoadFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.replace_frameLayout_id, fragment)
+                .commit();
+    }
 }
