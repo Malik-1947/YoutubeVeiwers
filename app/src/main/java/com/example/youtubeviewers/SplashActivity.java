@@ -36,6 +36,7 @@ public class SplashActivity extends AppCompatActivity {
         imageView3=findViewById(R.id.iv_logo3_id_splashActivity);
         textView_count=findViewById(R.id.tv_count_splahActivity);
         random_num=new Random();
+        ///random
         a= 0;
         textView_count.setText(String.valueOf(a));
         Handler handler=new Handler();
@@ -70,7 +71,7 @@ public class SplashActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent=new Intent(SplashActivity.this,MainActivity.class);
+                        Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
                         startActivity(intent);
                         finish();
                     }
